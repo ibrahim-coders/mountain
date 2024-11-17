@@ -1,0 +1,166 @@
+[
+  {
+    "id": 1,
+    "title": "Rainforest Ziplining",
+    "image": "https://i.ibb.co/LgHQp4b/im.jpg",
+    "category": "Adventure Sports",
+    "shortDescription": "Experience the thrill of ziplining through lush rainforests.",
+    "adventureCost": 120,
+    "bookingAvailability": true,
+    "location": "Costa Rica",
+    "duration": "3 hours",
+    "adventureLevel": "Intermediate",
+    "includedItems": ["Harness", "Helmet", "Safety Gloves"],
+    "ecoFriendlyFeatures": [
+      "No single-use plastics",
+      "Eco-certified equipment"
+    ],
+    "maxGroupSize": 10,
+    "specialInstructions": [
+      "Wear comfortable clothing and closed-toe shoes.",
+      "Apply eco-friendly insect repellent."
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Mangrove Kayaking",
+    "image": "https://i.ibb.co/8N9vMsr/Mountain2.jpg",
+    "category": "Water Adventures",
+    "shortDescription": "Paddle through serene mangroves and spot exotic wildlife.",
+    "adventureCost": 80,
+    "bookingAvailability": true,
+    "location": "Florida Keys, USA",
+    "duration": "2 hours",
+    "adventureLevel": "Easy",
+    "includedItems": ["Kayak", "Life Jacket", "Guide"],
+    "ecoFriendlyFeatures": [
+      "Non-motorized activity",
+      "Minimal impact on wildlife"
+    ],
+    "maxGroupSize": 8,
+    "specialInstructions": [
+      "Bring sunscreen and a water bottle.",
+      "Follow the guide's instructions closely."
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Mountain Trekking",
+    "image": "https://i.ibb.co/txLBJgs/Mountain3.jpg",
+    "category": "Hiking",
+    "shortDescription": "Conquer breathtaking peaks on this guided mountain trek.",
+    "adventureCost": 150,
+    "bookingAvailability": false,
+    "location": "Himalayas, Nepal",
+    "duration": "2 days",
+    "adventureLevel": "Advanced",
+    "includedItems": ["Trekking Poles", "Camping Gear", "Meals"],
+    "ecoFriendlyFeatures": ["Reusable water bottles", "Leave-no-trace policy"],
+    "maxGroupSize": 6,
+    "specialInstructions": [
+      "Ensure you are physically fit.",
+      "Pack layers for changing weather conditions."
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Coral Reef Snorkeling",
+    "image": "https://i.ibb.co/LJ1G1Xk/Mountain4.jpg",
+    "category": "Water Adventures",
+    "shortDescription": "Discover vibrant coral reefs and marine life.",
+    "adventureCost": 100,
+    "bookingAvailability": true,
+    "location": "Great Barrier Reef, Australia",
+    "duration": "Half-day",
+    "adventureLevel": "Easy",
+    "includedItems": ["Snorkel Gear", "Guided Tour", "Wetsuit"],
+    "ecoFriendlyFeatures": [
+      "Eco-friendly sunscreen",
+      "Marine conservation briefing"
+    ],
+    "maxGroupSize": 12,
+    "specialInstructions": [
+      "Do not touch or stand on coral.",
+      "Follow reef-safe guidelines."
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Desert Camel Safari",
+    "image": "https://i.ibb.co/MCHzhWv/Mountain5.jpg",
+    "category": "Cultural Experience",
+    "shortDescription": "Journey through golden sands on camelback.",
+    "adventureCost": 90,
+    "bookingAvailability": true,
+    "location": "Sahara Desert, Morocco",
+    "duration": "3 hours",
+    "adventureLevel": "Beginner",
+    "includedItems": ["Camel Ride", "Traditional Snacks", "Guide"],
+    "ecoFriendlyFeatures": ["No motor vehicles", "Support local communities"],
+    "maxGroupSize": 15,
+    "specialInstructions": [
+      "Carry water and wear a hat.",
+      "Respect local customs and traditions."
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Glacier Hiking",
+    "image": "https://i.ibb.co/Qb6ZMm5/Mountain-7.jpg",
+    "category": "Hiking",
+    "shortDescription": "Explore icy landscapes with expert guides.",
+    "adventureCost": 200,
+    "bookingAvailability": false,
+    "location": "Iceland",
+    "duration": "Full-day",
+    "adventureLevel": "Advanced",
+    "includedItems": ["Crampons", "Ice Axe", "Helmet"],
+    "ecoFriendlyFeatures": ["No waste policy", "Use of sustainable transport"],
+    "maxGroupSize": 5,
+    "specialInstructions": [
+      "Wear thermal layers.",
+      "Follow all safety precautions."
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Forest Camping",
+    "image": "https://i.ibb.co/tczKB05/Mountain-8.jpg",
+    "category": "Camping",
+    "shortDescription": "Reconnect with nature on an overnight forest camping trip.",
+    "adventureCost": 75,
+    "bookingAvailability": true,
+    "location": "Black Forest, Germany",
+    "duration": "1 night",
+    "adventureLevel": "Easy",
+    "includedItems": ["Tent", "Sleeping Bag", "Meals"],
+    "ecoFriendlyFeatures": ["Eco-friendly campfire", "Composting toilets"],
+    "maxGroupSize": 8,
+    "specialInstructions": [
+      "Do not feed the wildlife.",
+      "Carry a flashlight and extra batteries."
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Volcano Cycling Tour",
+    "image": "https://i.ibb.co/zndt022/winter-hiking.jpg",
+    "category": "Cycling",
+    "shortDescription": "Cycle around active volcanoes and stunning landscapes.",
+    "adventureCost": 130,
+    "bookingAvailability": true,
+    "location": "Bali, Indonesia",
+    "duration": "Half-day",
+    "adventureLevel": "Intermediate",
+    "includedItems": ["Bike", "Helmet", "Snacks"],
+    "ecoFriendlyFeatures": [
+      "Non-motorized activity",
+      "Support reforestation efforts"
+    ],
+    "maxGroupSize": 10,
+    "specialInstructions": [
+      "Stay hydrated.",
+      "Keep to designated cycling paths."
+    ]
+  }
+]
