@@ -18,7 +18,7 @@ const Home = () => {
           </h1>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-8 mx-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-8 mx-4 text-start">
         {data.slice(0, 4).map(mountain => (
           <MountainCard key={mountain.id} mountain={mountain}></MountainCard>
         ))}

@@ -10,7 +10,7 @@ const MountainCard = ({ mountain }) => {
   return (
     <div
       className="p-4 border rounded-lg shadow-lg"
-      data-aos="flip-up"
+      data-aos="fade-up"
       data-aos-duration="3000"
     >
       <img src={image} alt={title} className="w-full h-48 rounded-lg mb-4" />
