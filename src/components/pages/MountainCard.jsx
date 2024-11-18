@@ -8,7 +8,11 @@ const MountainCard = ({ mountain }) => {
     AOS.init();
   }, []);
   return (
-    <div className="p-4 border rounded-lg shadow-lg" data-aos="flip-up">
+    <div
+      className="p-4 border rounded-lg shadow-lg"
+      data-aos="flip-up"
+      data-aos-duration="3000"
+    >
       <img src={image} alt={title} className="w-full h-48 rounded-lg mb-4" />
       <div>
         <h2 className="text-2xl font-bold mb-2">{title}</h2>

@@ -1,6 +1,8 @@
 import { NavLink, useLoaderData } from 'react-router-dom';
 import BannerSlider from './BannerSlider';
 import MountainCard from './MountainCard';
+import Teem from './Teem';
+import Hotel from './Hotel';
 
 const Home = () => {
   const data = useLoaderData();
@@ -25,6 +27,8 @@ const Home = () => {
       <button className="mx-auto block btn btn-primary my-8">
         <NavLink to="/allmountain">Show More</NavLink>
       </button>
+      <Hotel />
+      <Teem />
     </div>
   );
 };

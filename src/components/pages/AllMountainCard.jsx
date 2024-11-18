@@ -16,7 +16,8 @@ const AllMountainCard = () => {
           <div
             key={mountain.id}
             className="p-4 border rounded-lg shadow-lg"
-            data-aos="flip-up"
+            data-aos="fade-up"
+            data-aos-duration="3000"
           >
             <img
               src={mountain.image}
