@@ -1,14 +1,17 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthContext/AuthProvider ';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
   const { userLogin, users, setUser } = useContext(AuthContext);
+  const [errMess, setMessErr] = useState('');
   const navigate = useNavigate();
   console.log(users);
+  const location = useLocation();
+  console.log(location);
   const handleLoginSubmit = e => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -18,16 +21,18 @@ const Login = () => {
       .then(result => {
         setUser(result.user);
         toast.success('Login successful!');
-        navigate('/');
+        navigate(location?.state ? location.state : '/');
       })
       .catch(error => {
-        console.log('ERROR', error);
+        console.log('ERROR', error.message);
+        setMessErr(error.message);
+
         if (error.code === 'auth/wrong-password') {
-          toast.error('Incorrect password. Please try again.');
+          setMessErr('Incorrect password. Please try again.');
         } else if (error.code === 'auth/user-not-found') {
-          toast.error('No account found with this email.');
+          setMessErr('No account found with this email.');
         } else {
-          toast.error('Something went wrong. Please try again.');
+          setMessErr('Something went wrong. Please try again.');
         }
       });
   };
@@ -77,6 +82,7 @@ const Login = () => {
                 required
                 className="w-full px-4 py-2 mt-1 text-gray-900 border rounded-md border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none"
               />
+              {setMessErr && <p className=" text-red-600 py-2">{errMess}</p>}
 
               <label
                 htmlFor="password"

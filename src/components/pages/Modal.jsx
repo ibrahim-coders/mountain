@@ -17,7 +17,7 @@ const Modal = () => {
     <div>
       <dialog id="my_modal_1" className="modal">
         <div className="modal-box">
-          <h2>Consultation Time</h2>
+          <h2 className="text-2xl text-gray-600 mt-4">Consultation Time</h2>
           <p>Our consultation hours are from 10:00 AM to 8:00 PM.</p>
           <button onClick={handleButtonClick} className="btn btn-primary mt-6">
             Click here for consultation

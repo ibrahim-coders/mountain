@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthContext/AuthProvider ';
 import { IoLogoGoogle } from 'react-icons/io';
@@ -11,38 +11,41 @@ import { Helmet } from 'react-helmet-async';
 
 const Register = () => {
   const { createNewUser, setUser } = useContext(AuthContext);
+  const [errorMess, setErrormess] = useState({});
   const navigate = useNavigate();
-
-  // Password validation
-  const validatePassword = password => {
-    if (password.length < 6) {
-      return 'Password must be at least 6 characters';
-    }
-    if (!/[A-Z]/.test(password)) {
-      return 'must have an Uppercase letter in the password ';
-    }
-    if (!/[a-z]/.test(password)) {
-      return 'must have a Lowercase letter in the password  ';
-    }
-
-    return '';
-  };
 
   const handleRegisterSubmit = e => {
     e.preventDefault();
-    console.log('Form submitted');
+
     const name = e.target.name.value;
     const photoURL = e.target.photoURL.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
     console.log(email, password, name, photoURL);
-
-    // Validate password
-    const passwordError = validatePassword(password);
-    if (passwordError) {
-      toast.error(passwordError);
+    if (password.length < 6) {
+      setErrormess({
+        ...errorMess,
+        password: 'Password must be more than 6 characters.',
+      });
       return;
     }
+
+    if (!/[A-Z]/.test(password)) {
+      setErrormess({
+        ...errorMess,
+        password: 'Password must have an uppercase letter.',
+      });
+      return;
+    }
+
+    if (!/[a-z]/.test(password)) {
+      setErrormess({
+        ...errorMess,
+        password: 'Password must have a lowercase letter.',
+      });
+      return;
+    }
+
     createNewUser(email, password)
       .then(result => {
         setUser(result.user);
@@ -50,7 +53,10 @@ const Register = () => {
         navigate('/');
       })
       .catch(error => {
-        toast.error('Failed to register. Please try again.');
+        setErrormess({
+          ...errorMess,
+          error: 'Failed to register. Please try again.',
+        });
         console.error('Registration Error:', error);
       });
   };
@@ -66,7 +72,6 @@ const Register = () => {
       .catch(error => {
         console.log('ERROR', error.message);
       });
-    console.log('Google login attempt');
   };
   return (
     <>
@@ -136,6 +141,16 @@ const Register = () => {
               >
                 Password
               </label>
+
+              {errorMess.password && (
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-rose-600 my-2"
+                >
+                  {errorMess.password}
+                </label>
+              )}
+
               <input
                 type="password"
                 name="password"

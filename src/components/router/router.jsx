@@ -8,6 +8,7 @@ import Hotel from '../pages/Hotel';
 import Teem from '../pages/Teem';
 import Detalis from '../pages/Detalis';
 import ErrorPage from '../pages/ErrorPage';
+import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -43,7 +44,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/details/:id',
-        element: <Detalis />,
+        element: (
+          <PrivateRoute>
+            <Detalis />
+          </PrivateRoute>
+        ),
         loader: async ({ params }) => {
           const res = await fetch('/mountain.json');
           const datas = await res.json();
