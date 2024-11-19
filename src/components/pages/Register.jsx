@@ -11,6 +11,22 @@ import { toast } from 'react-toastify';
 const Register = () => {
   const { createNewUser, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  // Password validation
+  const validatePassword = password => {
+    if (password.length < 6) {
+      return 'Password must be at least 6 characters';
+    }
+    if (!/[A-Z]/.test(password)) {
+      return 'must have an Uppercase letter in the password ';
+    }
+    if (!/[a-z]/.test(password)) {
+      return 'must have a Lowercase letter in the password  ';
+    }
+
+    return '';
+  };
+
   const handleRegisterSubmit = e => {
     e.preventDefault();
     console.log('Form submitted');
@@ -20,14 +36,21 @@ const Register = () => {
     const password = e.target.password.value;
     console.log(email, password, name, photoURL);
 
+    // Validate password
+    const passwordError = validatePassword(password);
+    if (passwordError) {
+      toast.error(passwordError);
+      return;
+    }
     createNewUser(email, password)
       .then(result => {
         setUser(result.user);
-        toast.success('Login successful!');
+        toast.success('Registration successful!');
         navigate('/');
       })
       .catch(error => {
-        console.log('ERROR', error);
+        toast.error('Failed to register. Please try again.');
+        console.error('Registration Error:', error);
       });
   };
   //google login
