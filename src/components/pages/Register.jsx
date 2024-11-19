@@ -1,13 +1,16 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthContext/AuthProvider ';
 import { IoLogoGoogle } from 'react-icons/io';
 
 import { auth } from '../../firebase.console';
-import { signInWithPopup } from 'firebase/auth';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 const Register = () => {
-  const { createNewUser } = useContext(AuthContext);
+  const { createNewUser, setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleRegisterSubmit = e => {
     e.preventDefault();
     console.log('Form submitted');
@@ -19,16 +22,22 @@ const Register = () => {
 
     createNewUser(email, password)
       .then(result => {
-        console.log(result.user);
+        setUser(result.user);
+        toast.success('Login successful!');
+        navigate('/');
       })
       .catch(error => {
         console.log('ERROR', error);
       });
   };
+  //google login
+  const google = new GoogleAuthProvider();
   const handleGoogleLogin = () => {
-    signInWithPopup(auth)
+    signInWithPopup(auth, google)
       .then(result => {
-        console.log(result.user);
+        setUser(result.user);
+        toast.success('Login successful!');
+        navigate('/');
       })
       .catch(error => {
         console.log('ERROR', error.message);

@@ -1,9 +1,17 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/logo.png';
+import { AuthContext } from '../AuthContext/AuthProvider ';
+
 const Navbar = () => {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
+  const { users, logOut } = useContext(AuthContext);
 
+  //logout
+
+  // const handleLogout = () => {
+  //   logOut(auth)
+  // }
   return (
     <header className=" relative z-20 w-full  bg-blue-950 shadow-lg shadow-slate-700/5 after:absolute after:left-0 after:top-full after:z-10 after:block after:h-px after:w-full lg:backdrop-blur-sm lg:after:hidden">
       <div className="relative mx-auto max-w-full px-6 lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[96rem]">
@@ -88,7 +96,11 @@ const Navbar = () => {
 
             <div className="  flex justify-start md:justify-center items-center">
               <button className="btn bg-orange-700">
-                <Link to="/login">Login</Link>
+                {users && users?.email ? (
+                  <Link onClick={logOut}>LogOut</Link>
+                ) : (
+                  <Link to="/login">Login</Link>
+                )}
               </button>
             </div>
           </ul>

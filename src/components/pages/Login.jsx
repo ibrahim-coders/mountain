@@ -1,9 +1,13 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthContext/AuthProvider ';
 import { useContext } from 'react';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 const Login = () => {
-  const { userLogin } = useContext(AuthContext);
+  const { userLogin, users, setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  console.log(users);
   const handleLoginSubmit = e => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -11,10 +15,19 @@ const Login = () => {
     console.log(email, password);
     userLogin(email, password)
       .then(result => {
-        console.log(result.user);
+        setUser(result.user);
+        toast.success('Login successful!');
+        navigate('/');
       })
       .catch(error => {
         console.log('ERROR', error);
+        if (error.code === 'auth/wrong-password') {
+          toast.error('Incorrect password. Please try again.');
+        } else if (error.code === 'auth/user-not-found') {
+          toast.error('No account found with this email.');
+        } else {
+          toast.error('Something went wrong. Please try again.');
+        }
       });
   };
   return (
