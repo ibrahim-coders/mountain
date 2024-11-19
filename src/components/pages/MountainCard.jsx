@@ -2,8 +2,9 @@ import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
+
 const MountainCard = ({ mountain }) => {
-  const { title, image, ecoFriendlyFeatures } = mountain;
+  const { title, image, ecoFriendlyFeatures, id } = mountain;
   useEffect(() => {
     AOS.init();
   }, []);
@@ -19,7 +20,7 @@ const MountainCard = ({ mountain }) => {
         <h3 className="text-lg font-semibold mb-2">Eco-Friendly Features:</h3>
         <ul className="list-disc pl-6">
           {ecoFriendlyFeatures.map((feature, index) => (
-            <li key={index} className="text-gray-700">
+            <li key={index} className="text-gray-700 text-start">
               {feature}
             </li>
           ))}
@@ -27,7 +28,10 @@ const MountainCard = ({ mountain }) => {
       </div>
 
       <div className=" mt-2">
-        <Link className="btn bg-red-500 mx-4 my-2 text-white ">
+        <Link
+          to={`/details/${id}`}
+          className="btn bg-red-500 mx-4 my-2 text-white "
+        >
           Explore Now
         </Link>
       </div>

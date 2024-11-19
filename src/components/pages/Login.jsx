@@ -3,6 +3,7 @@ import { AuthContext } from '../AuthContext/AuthProvider ';
 import { useContext } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
   const { userLogin, users, setUser } = useContext(AuthContext);
@@ -33,6 +34,9 @@ const Login = () => {
   return (
     <>
       <div className="flex  justify-center text-start  bg-gray-100 py-10">
+        <Helmet>
+          <title>HIKKER/Login</title>
+        </Helmet>
         <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-lg ">
           {/* Login Form Heading */}
           <h2 className="text-2xl font-bold text-center text-gray-800">
@@ -92,7 +96,7 @@ const Login = () => {
           </form>
           {/* Register Link */}
           <p className="text-sm text-center text-gray-600">
-            Don't have an account?{' '}
+            Don't have an account?
             <Link
               to="/register"
               className="font-semibold text-blue-500 hover:text-blue-600"

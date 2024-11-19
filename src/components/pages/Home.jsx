@@ -3,12 +3,16 @@ import BannerSlider from './BannerSlider';
 import MountainCard from './MountainCard';
 import Teem from './Teem';
 import Hotel from './Hotel';
+import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
   const data = useLoaderData();
   console.log(data);
   return (
     <div>
+      <Helmet>
+        <title>HIKKER | Home</title>
+      </Helmet>
       <BannerSlider />
       <div>
         <div className="my-10">

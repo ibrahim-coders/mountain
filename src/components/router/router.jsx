@@ -6,11 +6,14 @@ import Register from '../pages/Register';
 import Login from '../pages/Login';
 import Hotel from '../pages/Hotel';
 import Teem from '../pages/Teem';
+import Detalis from '../pages/Detalis';
+import ErrorPage from '../pages/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <MainLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: '',
@@ -37,6 +40,18 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register />,
+      },
+      {
+        path: '/details/:id',
+        element: <Detalis />,
+        loader: async ({ params }) => {
+          const res = await fetch('/mountain.json');
+          const datas = await res.json();
+          const mountainData = datas.find(
+            data => data.id === parseInt(params.id)
+          );
+          return mountainData;
+        },
       },
     ],
   },

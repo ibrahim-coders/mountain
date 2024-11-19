@@ -7,6 +7,7 @@ import { auth } from '../../firebase.console';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet-async';
 
 const Register = () => {
   const { createNewUser, setUser } = useContext(AuthContext);
@@ -70,6 +71,9 @@ const Register = () => {
   return (
     <>
       <div className="flex  justify-center text-start  bg-gray-100 py-10">
+        <Helmet>
+          <title>HIKKER/Regsier</title>
+        </Helmet>
         <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-lg mx-auto text-start ">
           <h2 className="text-2xl font-bold text-center text-gray-800">
             Register a New Account

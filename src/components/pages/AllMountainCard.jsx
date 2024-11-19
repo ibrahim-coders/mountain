@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Helmet } from 'react-helmet-async';
 const AllMountainCard = () => {
   const data = useLoaderData();
   console.log(data);
@@ -12,6 +13,9 @@ const AllMountainCard = () => {
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-8 mx-4">
+        <Helmet>
+          <title>HIKKER/Famous Places</title>
+        </Helmet>
         {data.map(mountain => (
           <div
             key={mountain.id}
@@ -32,7 +36,7 @@ const AllMountainCard = () => {
               </h3>
               <ul className="list-disc pl-6">
                 {mountain.ecoFriendlyFeatures?.map((feature, index) => (
-                  <li key={index} className="text-gray-700">
+                  <li key={index} className="text-gray-700 text-start">
                     {feature}
                   </li>
                 ))}
@@ -41,7 +45,7 @@ const AllMountainCard = () => {
 
             <div className=" mt-2">
               <Link
-                to={`/mountain/${mountain.id}`}
+                to={`/details/${mountain.id}`}
                 className="btn bg-red-500 mx-4 my-2 text-white"
               >
                 Explore Now
