@@ -3,6 +3,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from 'firebase/auth';
 import { createContext, useEffect, useState } from 'react';
 import { auth } from '../../firebase.console';
@@ -40,7 +41,9 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signOut(auth);
   };
-
+  const updateUsersProfile = updateProfiles => {
+    return updateProfile(auth.currentUser, updateProfiles);
+  };
   const authInfo = {
     createNewUser,
     userLogin,
@@ -49,6 +52,7 @@ const AuthProvider = ({ children }) => {
     setUser,
     loading,
     setLoading,
+    updateUsersProfile,
   };
 
   return (

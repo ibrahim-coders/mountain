@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthContext/AuthProvider ';
 import { IoLogoGoogle } from 'react-icons/io';
 
@@ -10,18 +10,21 @@ import { toast } from 'react-toastify';
 import { Helmet } from 'react-helmet-async';
 
 const Register = () => {
-  const { createNewUser, setUser } = useContext(AuthContext);
+  const { createNewUser, setUser, updateUsersProfile } =
+    useContext(AuthContext);
   const [errorMess, setErrormess] = useState({});
   const navigate = useNavigate();
+
+  const location = useLocation();
 
   const handleRegisterSubmit = e => {
     e.preventDefault();
 
     const name = e.target.name.value;
-    const photoURL = e.target.photoURL.value;
+    const photo = e.target.photoURL.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password, name, photoURL);
+    console.log(email, password, name, photo);
     if (password.length < 6) {
       setErrormess({
         ...errorMess,
@@ -46,11 +49,15 @@ const Register = () => {
       return;
     }
 
-    createNewUser(email, password)
+    createNewUser(email, password, photo, name)
       .then(result => {
         setUser(result.user);
+        navigate(location?.state ? location.state : '/');
         toast.success('Registration successful!');
-        navigate('/');
+        updateUsersProfile(user, {
+          displayName: name,
+          photoURL: photo,
+        });
       })
       .catch(error => {
         setErrormess({
@@ -66,8 +73,8 @@ const Register = () => {
     signInWithPopup(auth, google)
       .then(result => {
         setUser(result.user);
+        navigate(location?.state ? location.state : '/');
         toast.success('Login successful!');
-        navigate('/');
       })
       .catch(error => {
         console.log('ERROR', error.message);

@@ -4,11 +4,10 @@ import Home from '../pages/Home';
 import AllMountainCard from '../pages/AllMountainCard';
 import Register from '../pages/Register';
 import Login from '../pages/Login';
-import Hotel from '../pages/Hotel';
-import Teem from '../pages/Teem';
 import Detalis from '../pages/Detalis';
 import ErrorPage from '../pages/ErrorPage';
 import PrivateRoute from './PrivateRoute';
+import MyProfile from '../pages/MyProfile';
 
 const router = createBrowserRouter([
   {
@@ -26,13 +25,14 @@ const router = createBrowserRouter([
         element: <AllMountainCard />,
         loader: () => fetch('mountain.json'),
       },
+
       {
-        path: '/hotel',
-        element: <Hotel />,
-      },
-      {
-        path: '/ourteem',
-        element: <Teem />,
+        path: '/myprofile',
+        element: (
+          <PrivateRoute>
+            <MyProfile />
+          </PrivateRoute>
+        ),
       },
       {
         path: '/login',

@@ -162,5 +162,27 @@
       "Stay hydrated.",
       "Keep to designated cycling paths."
     ]
+  },
+  {
+    "id": 9,
+    "title": "Rainforest Ziplining",
+    "image": "https://highlandexpeditions.com/wp-content/uploads/2015/12/BillboardImage3.jpg",
+    "category": "Adventure Sports",
+    "shortDescription": "Experience the thrill of ziplining through lush rainforests.",
+    "adventureCost": 120,
+    "bookingAvailability": true,
+    "location": "Costa Rica",
+    "duration": "3 hours",
+    "adventureLevel": "Intermediate",
+    "includedItems": ["Harness", "Helmet", "Safety Gloves"],
+    "ecoFriendlyFeatures": [
+      "No single-use plastics",
+      "Eco-certified equipment"
+    ],
+    "maxGroupSize": 10,
+    "specialInstructions": [
+      "Wear comfortable clothing and closed-toe shoes.",
+      "Apply eco-friendly insect repellent."
+    ]
   }
 ]

@@ -7,11 +7,7 @@ const Navbar = () => {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
   const { users, logOut } = useContext(AuthContext);
 
-  //logout
-
-  // const handleLogout = () => {
-  //   logOut(auth)
-  // }
+  // console.log(users.photoURL);
   return (
     <header className=" relative z-20 w-full  bg-blue-950 shadow-lg shadow-slate-700/5 after:absolute after:left-0 after:top-full after:z-10 after:block after:h-px after:w-full lg:backdrop-blur-sm lg:after:hidden">
       <div className="relative mx-auto max-w-full px-6 lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[96rem]">
@@ -65,33 +61,40 @@ const Navbar = () => {
             <li role="none" className="flex items-stretch">
               <NavLink
                 to="/"
-                role="menuitem"
-                aria-haspopup="false"
-                className="flex items-center gap-2 py-4 transition-colors text-xl text-white duration-300 hover:text-emerald-500 focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8"
+                className="text-xl text-white hover:text-emerald-600 transition-colors duration-300 py-8 px-4"
               >
-                <span>Home</span>
+                Home
               </NavLink>
             </li>
             <li role="none" className="flex items-stretch">
-              <NavLink
-                role="menuitem"
-                aria-current="page"
-                aria-haspopup="false"
-                className="flex items-center gap-2 py-4  text-xl text-white transition-colors duration-300 hover:text-emerald-600 focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8"
-                to="/hotel"
-              >
-                <span>Hotel Service</span>
-              </NavLink>
+              {users && users?.email ? (
+                <NavLink
+                  to="/myprofile"
+                  className="text-xl text-white hover:text-emerald-600 transition-colors duration-300 py-8 px-4"
+                >
+                  My Profile
+                </NavLink>
+              ) : (
+                ''
+              )}
             </li>
-            <li role="none" className="flex items-stretch">
-              <NavLink
-                role="menuitem"
-                aria-haspopup="false"
-                className="flex items-center gap-2 py-4  text-xl text-white transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8"
-                to="/ourteem"
-              >
-                <span>Our-Tem</span>
-              </NavLink>
+
+            <li role="none" className="flex items-center px-4">
+              {users && users.email ? (
+                <div className="relative group">
+                  <img
+                    src={users.photoURL}
+                    alt="User Profile"
+                    className="w-16 h-16 rounded-full border-2 border-white"
+                  />
+
+                  <p className="absolute inset-0 flex items-center justify-center text-sm text-white bg-black bg-opacity-75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full">
+                    {users.displayName}
+                  </p>
+                </div>
+              ) : (
+                ''
+              )}
             </li>
 
             <div className="  flex justify-start md:justify-center items-center">
