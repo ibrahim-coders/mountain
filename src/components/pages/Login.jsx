@@ -3,7 +3,7 @@ import { AuthContext } from '../AuthContext/AuthProvider ';
 import { useContext, useRef, useState } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
-import { Helmet } from 'react-helmet-async';
+
 import { sendPasswordResetEmail } from 'firebase/auth';
 import { auth } from '../../firebase.console';
 
@@ -53,9 +53,6 @@ const Login = () => {
   return (
     <>
       <div className="flex  justify-center text-start  bg-gray-100 py-10">
-        <Helmet>
-          <title>HIKKER/Login</title>
-        </Helmet>
         <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-lg ">
           {/* Login Form Heading */}
           <h2 className="text-2xl font-bold text-center text-gray-800">

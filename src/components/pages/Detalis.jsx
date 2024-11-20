@@ -1,6 +1,6 @@
 import { useLoaderData } from 'react-router-dom';
 import Modal from './Modal';
-import { Helmet } from 'react-helmet-async';
+// import { Helmet } from 'react-helmet-async';
 
 const Detalis = () => {
   const data = useLoaderData();
@@ -24,9 +24,9 @@ const Detalis = () => {
 
   return (
     <div className="container mx-auto p-4 max-w-screen-md">
-      <Helmet>
+      {/* <Helmet>
         <title>HIKKER/DetailsS</title>
-      </Helmet>
+      </Helmet> */}
       <div className="w-full  p-4 mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
         <img
           src={image}

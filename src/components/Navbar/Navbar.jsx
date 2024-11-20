@@ -69,6 +69,18 @@ const Navbar = () => {
             <li role="none" className="flex items-stretch">
               {users && users?.email ? (
                 <NavLink
+                  to="/update-profile"
+                  className="text-xl text-white hover:text-emerald-600 transition-colors duration-300 py-8 px-4"
+                >
+                  Update Profile
+                </NavLink>
+              ) : (
+                ''
+              )}
+            </li>
+            <li role="none" className="flex items-stretch">
+              {users && users?.email ? (
+                <NavLink
                   to="/myprofile"
                   className="text-xl text-white hover:text-emerald-600 transition-colors duration-300 py-8 px-4"
                 >
@@ -81,7 +93,7 @@ const Navbar = () => {
 
             <li role="none" className="flex items-center px-4">
               {users && users.email ? (
-                <div className="relative group">
+                <div className="my-2 relative group">
                   <img
                     src={users.photoURL}
                     alt="User Profile"

@@ -3,7 +3,7 @@ import BannerSlider from './BannerSlider';
 import MountainCard from './MountainCard';
 import Teem from './Teem';
 import Hotel from './Hotel';
-import { Helmet } from 'react-helmet-async';
+// import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
   const data = useLoaderData();
@@ -15,9 +15,9 @@ const Home = () => {
 
   return (
     <div>
-      <Helmet>
+      {/* <Helmet>
         <title>HIKKER | Home</title>
-      </Helmet>
+      </Helmet> */}
       <BannerSlider />
       <div>
         <div className="my-10">

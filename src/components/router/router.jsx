@@ -9,6 +9,8 @@ import ErrorPage from '../pages/ErrorPage';
 import PrivateRoute from './PrivateRoute';
 import MyProfile from '../pages/MyProfile';
 
+import UpdateProfile from '../pages/UpdateProfile';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -24,6 +26,10 @@ const router = createBrowserRouter([
         path: '/allmountain',
         element: <AllMountainCard />,
         loader: () => fetch('mountain.json'),
+      },
+      {
+        path: '/update-profile',
+        element: <UpdateProfile />,
       },
 
       {

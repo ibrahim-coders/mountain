@@ -27,7 +27,7 @@ const MyProfile = () => {
         <p className="text-lg font-medium">Name: {displayName}</p>
         <p className="text-lg font-medium">Email: {email}</p>
         <button
-          onClick={() => navigate('/')}
+          onClick={() => navigate('/update-profile')}
           className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
         >
           Update Profile
