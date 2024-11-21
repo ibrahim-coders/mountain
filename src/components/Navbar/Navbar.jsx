@@ -10,10 +10,10 @@ const Navbar = () => {
   // console.log(users.photoURL);
   return (
     <header className=" relative z-20 w-full  bg-blue-950 shadow-lg shadow-slate-700/5 after:absolute after:left-0 after:top-full after:z-10 after:block after:h-px after:w-full lg:backdrop-blur-sm lg:after:hidden">
-      <div className="relative mx-auto max-w-full px-6 lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[96rem]">
+      <div className="relative mx-auto max-w-full px-10 lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[96rem] ">
         <nav
           aria-label="main navigation"
-          className="flex h-[5.5rem] items-stretch justify-between font-medium text-slate-700"
+          className="flex h-[5.5rem] items-stretch justify-between font-medium text-slate-700 "
           role="navigation"
         >
           {/*      <!-- Brand logo --> */}

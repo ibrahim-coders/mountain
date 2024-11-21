@@ -22,10 +22,12 @@ const MainLayout = () => {
   }, [location.pathname]);
 
   return (
-    <div className="max-w-screen-2xl mx-auto items-center text-center font-poppins">
+    <div className="w-11/12 mx-auto items-center text-center font-poppins">
       <ToastContainer position="top-center" autoClose={3000} />
       <Navbar />
-      <Outlet />
+      <div className="max-w-screen-xl">
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );

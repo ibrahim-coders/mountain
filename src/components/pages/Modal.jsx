@@ -8,9 +8,12 @@ const Modal = () => {
     if (currentHour >= 10 && currentHour < 20) {
       window.open('https://meet.google.com', '_blank');
     } else {
-      toast.info(
-        'Our consultation time is from 10:00 AM to 8:00 PM. Please visit during these hours.'
-      );
+      // toast.info(
+      //   'Our consultation time is from 10:00 AM to 8:00 PM. Please visit during these hours.'
+      // );
+      <p className="text-red-600 my-8">
+        Consultation is available only between 10:00 AM and 8:00 PM.
+      </p>;
     }
   };
   return (

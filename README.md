@@ -1,8 +1,26 @@
-# React + Vite
+# HIKKER
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Purpose
 
-Currently, two official plugins are available:
+The **Rainforest Adventure Carousel** showcases an interactive and responsive
+carousel for thrilling rainforest ziplining experiences. This project highlights
+modern web technologies to provide a dynamic and engaging user experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live URL
+
+[Rainforest Adventure Carousel](#)
+
+## Key Features
+
+- **Responsive Design**: The carousel adapts to different screen sizes using
+  Tailwind CSS, ensuring a seamless experience on mobile, tablet, and desktop.
+- **Interactive Carousel**: Users can navigate through images using the previous
+  and next buttons.
+- **Smooth Animations**: Integrated with the AOS (Animate On Scroll) library for
+  dynamic scroll-based animations.
+- **Toast Notifications**: React Toastify is used to show success messages and
+  other notifications to enhance user interaction.
+
+## NPM Packages Used
+
+1.react-toastify 2.AOS Package

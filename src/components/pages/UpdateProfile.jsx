@@ -1,27 +1,40 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { auth } from '../../firebase.console';
 import { updateProfile } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
+import { AuthContext } from '../AuthContext/AuthProvider ';
 
 const UpdateProfile = () => {
+  const { setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const [name, setName] = useState(auth.currentUser?.displayName || '');
   const [photoURL, setPhotoURL] = useState(auth.currentUser?.photoURL || '');
+
+  useEffect(() => {
+    setName(auth.currentUser?.displayName || '');
+    setPhotoURL(auth.currentUser?.photoURL || '');
+  }, [auth.currentUser]);
+
   const handleUpdate = e => {
     e.preventDefault();
     updateProfile(auth.currentUser, { displayName: name, photoURL })
-      .then(result => {
-        setUser(result.user);
-        toast.success('Profile Uptete successful!');
-        navigate('/update-profile');
+      .then(() => {
+        const updatedUser = {
+          ...auth.currentUser,
+          displayName: name,
+          photoURL,
+        };
+        setUser(updatedUser);
+        toast.success('Profile updated successfully!');
+        navigate('/myprofile');
       })
-
       .catch(error => {
-        console.log('ERROR', error.message);
+        console.error('ERROR:', error.message);
       });
   };
+
   return (
     <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-lg mx-auto text-start my-10">
       <h1 className="text-2xl font-bold text-center mb-4">

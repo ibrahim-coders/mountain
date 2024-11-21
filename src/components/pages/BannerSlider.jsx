@@ -1,61 +1,74 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
 const BannerSlider = () => {
-  const slides = [
-    {
-      id: 1,
-      image:
-        'https://miro.medium.com/v2/resize:fit:1100/format:webp/1*_crAGd8QGQZNbfjxfi8cjw.jpeg',
-      title: 'Rainforest Ziplining',
-      description: 'Feel the thrill of soaring through lush rainforests.',
-    },
-    {
-      id: 2,
-      image:
-        'https://miro.medium.com/v2/resize:fit:1100/format:webp/1*ZX_vumEJ6QUbIR3N_tOhGg.jpeg',
-      title: 'Mangrove Kayaking',
-      description:
-        'Paddle through serene mangroves and discover exotic wildlife.',
-    },
-    {
-      id: 3,
-      image:
-        'https://miro.medium.com/v2/resize:fit:1100/format:webp/1*zT60b4kegq8Fi9DyQjDnyQ.jpeg',
-      title: 'Mountain Trekking',
-      description:
-        'Conquer breathtaking peaks and experience nature like never before.',
-    },
-  ];
-
   return (
-    <div className="w-full max-w-screen-xl mx-auto">
-      <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        navigation
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 3000 }}
-        loop={true}
-        spaceBetween={30}
-        slidesPerView={1}
-      >
-        {slides.map(slide => (
-          <SwiperSlide key={slide.id}>
-            <div
-              className="relative w-full h-[400px] bg-cover bg-center"
-              style={{ backgroundImage: `url(${slide.image})` }}
-            >
-              <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white text-center">
-                <h2 className="text-4xl font-bold">{slide.title}</h2>
-                <p className="mt-4 text-lg">{slide.description}</p>
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+    <div className="w-full">
+      <div className="carousel w-full h-96 md:h-[450px]">
+        <div id="slide1" className="carousel-item relative w-full">
+          <img
+            src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*_crAGd8QGQZNbfjxfi8cjw.jpeg"
+            className="w-full"
+          />
+          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+            <a href="#slide3" className="btn btn-circle">
+              ❮
+            </a>
+            <a href="#slide2" className="btn btn-circle">
+              ❯
+            </a>
+          </div>
+          <div className="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 text-center flex flex-col items-center space-y-2 px-4">
+            <h2 className="text-lg md:text-2xl lg:text-4xl font-bold text-red-600">
+              Mangrove Kayaking
+            </h2>
+            <p className="text-sm md:text-base lg:text-lg text-white">
+              Conquer breathtaking peaks and experience nature like never before
+            </p>
+          </div>
+        </div>
+        <div id="slide2" className="carousel-item relative w-full">
+          <img
+            src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*ZX_vumEJ6QUbIR3N_tOhGg.jpeg"
+            className="w-full"
+          />
+          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+            <a href="#slide1" className="btn btn-circle">
+              ❮
+            </a>
+            <a href="#slide3" className="btn btn-circle">
+              ❯
+            </a>
+          </div>
+          <div className="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 text-center flex flex-col items-center space-y-2 px-4">
+            <h2 className="text-lg md:text-2xl lg:text-3xl font-bold text-red-600">
+              Mountain Trekking
+            </h2>
+            <p className="text-sm md:text-base lg:text-lg text-white">
+              Feel the thrill of soaring through lush rainforests.
+            </p>
+          </div>
+        </div>
+        <div id="slide3" className="carousel-item relative w-full">
+          <img
+            src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*zT60b4kegq8Fi9DyQjDnyQ.jpeg"
+            className="w-full"
+          />
+          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+            <a href="#slide2" className="btn btn-circle">
+              ❮
+            </a>
+            <a href="#slide1" className="btn btn-circle">
+              ❯
+            </a>
+          </div>
+          <div className="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 text-center flex flex-col items-center space-y-2 px-4">
+            <h2 className="text-lg md:text-2xl lg:text-3xl font-bold text-red-600">
+              Rainforest Ziplining
+            </h2>
+            <p className="text-sm md:text-base lg:text-lg text-white">
+              Feel the thrill of soaring through lush rainforests.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

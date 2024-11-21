@@ -4,7 +4,6 @@ import Modal from './Modal';
 
 const Detalis = () => {
   const data = useLoaderData();
-  console.log(data);
 
   const {
     adventureCost,

@@ -4,7 +4,7 @@ import logo from '../../assets/logo.png';
 const Footer = () => {
   return (
     <>
-      <footer className="w-full text-slate-500">
+      <footer className="max-w-screen-xl w-full text-slate-500">
         <div className="border-t border-slate-200 bg-gray-200 pt-16 pb-12 text-sm">
           <div className="m-4">
             <img className="w-24 h-10 " src={logo} alt="" />

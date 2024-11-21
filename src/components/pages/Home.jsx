@@ -7,14 +7,13 @@ import Hotel from './Hotel';
 
 const Home = () => {
   const data = useLoaderData();
-  console.log(data);
 
   if (!data) {
     return <span className="loading loading-ring loading-lg"></span>;
   }
 
   return (
-    <div>
+    <div className=" w-11/12 mx-auto">
       {/* <Helmet>
         <title>HIKKER | Home</title>
       </Helmet> */}

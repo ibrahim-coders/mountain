@@ -8,18 +8,17 @@ import { sendPasswordResetEmail } from 'firebase/auth';
 import { auth } from '../../firebase.console';
 
 const Login = () => {
-  const { userLogin, users, setUser } = useContext(AuthContext);
+  const { userLogin, setUser } = useContext(AuthContext);
   const [errMess, setMessErr] = useState('');
   const navigate = useNavigate();
-  console.log(users);
+
   const location = useLocation();
-  console.log(location);
 
   const handleLoginSubmit = e => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
+
     userLogin(email, password)
       .then(result => {
         setUser(result.user);
@@ -27,7 +26,7 @@ const Login = () => {
         navigate(location?.state ? location.state : '/');
       })
       .catch(error => {
-        console.log('ERROR', error.message);
+        setMessErr('ERROR', error.message);
 
         if (error.code === 'auth/wrong-password') {
           setMessErr('Incorrect password. Please try again.');
@@ -41,7 +40,7 @@ const Login = () => {
   const emailRef = useRef();
   const handleForgetPassword = () => {
     const email = emailRef.current.value;
-    console.log('rakib', email);
+
     if (!email) {
       setMessErr('plese provide a vaild email address');
     } else {

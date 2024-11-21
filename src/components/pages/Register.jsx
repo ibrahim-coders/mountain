@@ -7,11 +7,11 @@ import { auth } from '../../firebase.console';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
-// import { Helmet } from 'react-helmet-async';
 
 const Register = () => {
   const { createNewUser, setUser, updateUsersProfile } =
     useContext(AuthContext);
+
   const [errorMess, setErrormess] = useState({});
   const navigate = useNavigate();
 
@@ -24,7 +24,8 @@ const Register = () => {
     const photo = e.target.photoURL.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password, name, photo);
+    // console.log(email, password, name, photo);
+
     if (password.length < 6) {
       setErrormess({
         ...errorMess,
@@ -54,16 +55,18 @@ const Register = () => {
         setUser(result.user);
         navigate(location?.state ? location.state : '/');
         toast.success('Registration successful!');
-        updateUsersProfile(user, {
+        updateUsersProfile({
           displayName: name,
           photoURL: photo,
-        });
+        })
+          .then(() => {
+            navigate(location?.state ? location.state : '/');
+          })
+          .catch(err => {
+            console.log('ERROR', err);
+          });
       })
       .catch(error => {
-        setErrormess({
-          ...errorMess,
-          error: 'Failed to register. Please try again.',
-        });
         console.error('Registration Error:', error);
       });
   };

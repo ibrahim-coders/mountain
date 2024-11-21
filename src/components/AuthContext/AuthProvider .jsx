@@ -41,8 +41,8 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signOut(auth);
   };
-  const updateUsersProfile = updateProfiles => {
-    return updateProfile(auth.currentUser, updateProfiles);
+  const updateUsersProfile = update => {
+    return updateProfile(auth.currentUser, update);
   };
   const authInfo = {
     createNewUser,

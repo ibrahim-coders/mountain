@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { Helmet } from 'react-helmet-async';
+
 const AllMountainCard = () => {
   const data = useLoaderData();
   console.log(data);
@@ -13,9 +13,6 @@ const AllMountainCard = () => {
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-8 mx-4">
-        <Helmet>
-          <title>HIKKER/Famous Places</title>
-        </Helmet>
         {data.map(mountain => (
           <div
             key={mountain.id}
